@@ -1,4 +1,4 @@
-from Assistants.Squirrel import Squirrel
+from assistants.Squirrel import Squirrel
 from discord.ext import commands
 
 

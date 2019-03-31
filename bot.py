@@ -2,7 +2,7 @@ import logging
 import discord
 import os
 
-from Assistants.Jason import Jason
+from assistants.Jason import Jason
 from random import randint, choice, random
 from discord.ext.commands import Bot
 from utils.tools import find_word
@@ -11,9 +11,9 @@ bun_bot = Bot(command_prefix='!bb.')
 
 # region settings
 startup_modules = [
-
+    'ranks'
 ]
-startup_modules = ['modules/{}'.format(module) for module in startup_modules]  # not very elegant, but user-friendly
+startup_modules = ['modules.{}'.format(module) for module in startup_modules]  # not very elegant, but user-friendly
 
 Jason = Jason()
 important_files = []  # placeholder, maybe store these externally?
@@ -145,7 +145,7 @@ if __name__ == '__main__':
             f.write(str(os.getpid()))
         log.info('PID file written.')
 
-        bun_bot.run(bun_bot.token)
+        bun_bot.run(bun_bot.token)  # This is blocking; code after this will not run until the bot exits
 
         log.info('Bot stopping.')
     except Exception as e:

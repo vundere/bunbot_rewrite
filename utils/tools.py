@@ -16,3 +16,15 @@ def find_word(message, words):
         if finder(w)(message):
             return True
     return False
+
+
+def init_korean():
+    with open("static/lists/nouns.txt", "r") as n:
+        nouns = n.read().split("\n")
+    with open("static/lists/verbs.txt", "r") as v:
+        verbs = v.read().split("\n")
+    result = {
+        "nouns": nouns,
+        "verbs": verbs
+    }
+    return result
